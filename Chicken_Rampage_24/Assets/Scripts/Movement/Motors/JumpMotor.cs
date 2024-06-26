@@ -8,9 +8,9 @@ public class JumpMotor : MonoBehaviour, IJump
     Rigidbody2D rb;
 
     [Tooltip("How high can I jump")]
-    public float jumpHeight = 4f;
+    public float jumpHeight = 1f;
     [Tooltip("How does gravity effect me while I am accending")]
-    public float upGravityScale = 2f;
+    public float upGravityScale = 1f;
     [Tooltip("How does gravity effect me while I am falling")]
     public float downGravityScale = 3f;
 
@@ -24,7 +24,7 @@ public class JumpMotor : MonoBehaviour, IJump
     int numberOfJumps = 1;
     [Tooltip("After the first jump, my following jumps will jump to a height scaled by this number")]
     [SerializeField]
-    float secondaryJumpHeightMultiplier = .5f;
+    float secondaryJumpHeightMultiplier = .2f;
 
 
     [Header("Ground Detection Options")]
@@ -34,7 +34,7 @@ public class JumpMotor : MonoBehaviour, IJump
     [Tooltip("Right point which we use to check below us for ground and to the side for a wall.")]
     [SerializeField] Transform rightDetectorPoint;
 
-    [SerializeField] float groundDetectionDistance = .5f;
+    [SerializeField] float groundDetectionDistance = .3f;
     [SerializeField] float wallDetectionDistance = .25f;
 
     [Tooltip("I will try to run and jump on anything in these layers as if it was ground")]
