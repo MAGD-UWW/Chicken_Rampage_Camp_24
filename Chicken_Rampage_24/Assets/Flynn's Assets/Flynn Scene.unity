@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 784380582}
   - component: {fileID: 784380581}
   m_Layer: 0
-  m_Name: Farmer w_ anim._0
+  m_Name: Farmer_cam_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,12 +928,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784380580}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.295, y: -2.095, z: 0}
-  m_LocalScale: {x: 1.1777945, y: 1.1777945, z: 1.1777945}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.16113557, y: -0.0054754606, z: 0}
+  m_LocalScale: {x: 0.92128503, y: 0.92128503, z: 0.92128503}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1998343695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801135951
 GameObject:
@@ -1242,6 +1242,7 @@ GameObject:
   - component: {fileID: 1083273448}
   - component: {fileID: 1083273447}
   - component: {fileID: 1083273446}
+  - component: {fileID: 1083273449}
   m_Layer: 0
   m_Name: Chicken Nugget Sun_0
   m_TagString: Untagged
@@ -1330,13 +1331,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083273445}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.732, y: -0.194, z: 0}
-  m_LocalScale: {x: 2.4995, y: 2.4995, z: 2.4995}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.382, y: -0.09799993, z: 0}
+  m_LocalScale: {x: 2.4995003, y: 2.4995003, z: 2.4995003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1083273449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083273445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee75fdf325f7b3143b0fc675b9d6555a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1668031536}
+  smoothingTimePercentage: 0.1
+  constrainX: 0
+  constraintY: 1
 --- !u!1 &1382903074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1649,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1668031535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668031536}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668031536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668031535}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.273, y: 1.552, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1998343695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1697847827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +1773,7 @@ GameObject:
   - component: {fileID: 1998343694}
   - component: {fileID: 1998343693}
   m_Layer: 0
-  m_Name: Farmer w_ anim. (1)_0
+  m_Name: Farmer_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1816,7 +1864,9 @@ Transform:
   m_LocalPosition: {x: -5.089, y: -2.088, z: 0}
   m_LocalScale: {x: 1.2784257, y: 1.2784257, z: 1.2784257}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 784380583}
+  - {fileID: 1668031536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
@@ -1826,16 +1876,15 @@ SceneRoots:
   - {fileID: 398828842}
   - {fileID: 963922882}
   - {fileID: 1382903077}
-  - {fileID: 784380583}
   - {fileID: 849621522}
   - {fileID: 782367363}
   - {fileID: 1697847829}
   - {fileID: 1551058511}
   - {fileID: 1455437113}
-  - {fileID: 1083273448}
   - {fileID: 1998343695}
   - {fileID: 589642442}
   - {fileID: 423001486}
   - {fileID: 485257627}
   - {fileID: 801135954}
   - {fileID: 231108136}
+  - {fileID: 1083273448}
