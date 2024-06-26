@@ -2655,7 +2655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea4926172f1cd8499cff2d67d60a18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animators: []
+  animators:
+  - {fileID: 1998343693}
   moveSpeed: 2
 --- !u!50 &1998343700
 Rigidbody2D:
@@ -2711,7 +2712,7 @@ MonoBehaviour:
   doIFlip: 1
   facingRight: 1
   idle: {fileID: 7400000, guid: 37252f0aa159a1949b58efd52b9d55d7, type: 2}
-  moveSide: {fileID: 0}
+  moveSide: {fileID: 7400000, guid: 6d43cbdd0bcc2cf4bba738e8465c80e1, type: 2}
   moveUp: {fileID: 0}
   moveDown: {fileID: 0}
   attack: {fileID: 0}
