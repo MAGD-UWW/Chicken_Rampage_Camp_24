@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
                 differance.y = 0;
             }
             
-            transform.position = new Vector3(transform.position.x + differance.x * smoothingTimePercentage, transform.position.y + differance.y * smoothingTimePercentage, -10f);
+            transform.position = new Vector3(transform.position.x + differance.x * smoothingTimePercentage, transform.position.y + differance.y * smoothingTimePercentage, gameObject.transform.position.z);
         }
         
     }
