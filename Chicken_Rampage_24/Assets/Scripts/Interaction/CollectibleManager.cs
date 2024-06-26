@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 [System.Serializable]
 public enum Collectible_Type
@@ -26,8 +27,8 @@ public class CollectibleManager : MonoBehaviour, ICollectible, ICompletible
     public int ammoCollected;
     public bool showAmmo;
     [Header("Drag in the ui text you want to display.")]
-    public Text coinCount;
-    public Text ammoCount;
+    public TextMeshProUGUI coinCount;
+    public TextMeshProUGUI ammoCount;
 
     public bool keyCollected;
     public GameObject keyImage;
