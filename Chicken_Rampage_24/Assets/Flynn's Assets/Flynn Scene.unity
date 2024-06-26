@@ -432,8 +432,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1127556545
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 2140168510, guid: edc6da4ca6111a14991c869bedd33ca5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 285406123}
   - component: {fileID: 285406125}
   - component: {fileID: 285406124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Farmer/Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,14 +602,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b8bfbbb455c8545929653ca2e14091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   currentHealth: 0
   immunityTime: 0.2
   immunityVisible: 1
   immortal: 0
   sound: {fileID: 0}
   soundVolume: 1
-  healthUI: {fileID: 0}
+  healthUI: {fileID: 1900770694}
   startsFullHealth: 1
 --- !u!114 &285406117
 MonoBehaviour:
@@ -942,6 +942,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5388393, y: 2.7191536}
   m_EdgeRadius: 0
+--- !u!1 &382452023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382452024}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &382452024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382452023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 801135954}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &398828839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,7 +1767,7 @@ GameObject:
   - component: {fileID: 784380583}
   - component: {fileID: 784380582}
   - component: {fileID: 784380581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Farmer_cam_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1944,6 +1975,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 169053409}
+  - {fileID: 382452024}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &801135955
@@ -2110,8 +2142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   attackSpeed: 5
-  attackInput: 323
-  attackOffset: {fileID: 0}
+  attackInput: 0
+  attackOffset: {fileID: 382452024}
   projectile: {fileID: 7728412902767994620, guid: 0db777469c91a34428baf975c0a088a8, type: 3}
   projectileSpeed: 1.5
   liveTime: 6
@@ -2838,7 +2870,7 @@ Transform:
   m_GameObject: {fileID: 1083273445}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.55, y: -0.12, z: 0}
+  m_LocalPosition: {x: -6.459, y: -0.278, z: 0}
   m_LocalScale: {x: 2.4995003, y: 2.4995003, z: 2.4995003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2857,8 +2889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1668031536}
-  smoothingTimePercentage: 0.1
-  constrainX: 1
+  smoothingTimePercentage: 1
+  constrainX: 0
   constraintY: 1
 --- !u!1 &1104143504
 GameObject:
@@ -3017,7 +3049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1273656456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cam Follow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3048,7 +3080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374576018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3584,7 +3616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668031536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3600,7 +3632,7 @@ Transform:
   m_GameObject: {fileID: 1668031535}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 1.335, z: 0}
+  m_LocalPosition: {x: -3.13, y: 2.76, z: 0}
   m_LocalScale: {x: 1.2784257, y: 1.2784257, z: 1.2784257}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3986,6 +4018,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3954074359052580252, guid: c9f16918f2beebe4d97ebc51151efc07, type: 3}
   m_PrefabInstance: {fileID: 1900770691}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1900770694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3954074359052580253, guid: c9f16918f2beebe4d97ebc51151efc07, type: 3}
+  m_PrefabInstance: {fileID: 1900770691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b888db2a3cc38b542bd5c4a1e5b1744e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2057405600
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,7 +4038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057405601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'left point '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
