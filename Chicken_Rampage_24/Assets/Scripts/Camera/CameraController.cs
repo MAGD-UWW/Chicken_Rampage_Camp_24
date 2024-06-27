@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
 
     public float smoothingTimePercentage = .1f;
 
+    public float horizontalOffset;
+
     public bool constrainX = false;
     public bool constraintY = false;
 

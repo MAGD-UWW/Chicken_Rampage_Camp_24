@@ -11,7 +11,7 @@ public class PokeForward : PokeAllDirection
         if (myAnim) myAnim.SetTrigger("Attack");
         if (weaponAnchor) weaponAnchor.transform.GetComponentInChildren<Animator>().SetTrigger("Attack");
 
-        Vector2 direction = transform.up;
+        Vector2 direction = transform.right;
         Debug.DrawRay(attackOffset.position, direction * attackRange, Color.red, attackTime);
 
         yield return new WaitForSeconds(attackTime / 2);

@@ -76,13 +76,17 @@ public class AnimationManager : MonoBehaviour
     {
         if (doIFlip)
         {
-            if(animator.GetFloat("HorizontalSpeed") < 0)
+            if(animator.GetFloat("HorizontalSpeed") < 0 && facingRight)
             {
-                sr.flipX = facingRight; 
+                transform.Rotate(new Vector3(0, 180, 0));
+                facingRight = !facingRight;
+                //sr.flipX = facingRight; 
             }
-            else if(animator.GetFloat("HorizontalSpeed") > 0)
+            else if(animator.GetFloat("HorizontalSpeed") > 0 && !facingRight)
             {
-                sr.flipX = !facingRight;
+                //sr.flipX = !facingRight;
+                transform.Rotate(new Vector3(0, 180, 0));
+                facingRight = !facingRight;
             }
         }
     }
