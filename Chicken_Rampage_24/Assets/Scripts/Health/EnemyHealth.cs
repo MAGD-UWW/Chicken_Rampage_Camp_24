@@ -79,7 +79,7 @@ public class EnemyHealth : Health
 
             cm.UpdateValue(Collectible_Type.Coin, 1);
 
-            Destroy(gameObject);
+            StartCoroutine(Death());
         }
     }
 
@@ -127,5 +127,12 @@ public class EnemyHealth : Health
                 healthBar = false;
             }
         }
+    }
+
+    IEnumerator Death()
+    {
+        GetComponent<Animator>()?.Play("Death");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
