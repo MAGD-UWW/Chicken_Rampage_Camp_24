@@ -704,13 +704,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsCollected: 0
-  showCoins: 0
+  showCoins: 1
   coinsCollectedGoal: 0
-  coinGoalAmount: 0
+  coinGoalAmount: 10000
   ammoCollected: 0
-  showAmmo: 0
-  coinCount: {fileID: 811746114}
-  ammoCount: {fileID: 0}
+  showAmmo: 1
+  coinCount: {fileID: 1104143506}
+  ammoCount: {fileID: 811746114}
   keyCollected: 0
   keyImage: {fileID: 0}
   showKey: 0
@@ -800,10 +800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  attackSpeed: 1
+  attackSpeed: 0.5
   attackInput: 323
   attackOffset: {fileID: 1023383630}
-  attackRange: 0.5
+  attackRange: 0.6
   attackLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animators:
   - {fileID: 801135952}
-  moveSpeed: 0.5
+  moveSpeed: 1
 --- !u!50 &801135957
 Rigidbody2D:
   serializedVersion: 4
@@ -1668,7 +1668,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &801135958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,6 +1709,7 @@ MonoBehaviour:
   timeToDie: 0
   deathCountsTowardGoal: 0
   autosetLayerToEnemy: 1
+  cm: {fileID: 285406123}
 --- !u!61 &801135960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1774,6 +1775,7 @@ MonoBehaviour:
   projectileSpeed: 1.5
   liveTime: 6
   infiniteAmmo: 1
+  aggroDistance: 5
 --- !u!114 &801135962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1963,7 +1965,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 838099826}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 64eced7002c23458fa9bd58d5e0d1dc3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2194,9 +2196,12 @@ GameObject:
   - component: {fileID: 1001485557}
   - component: {fileID: 1001485556}
   - component: {fileID: 1001485555}
+  - component: {fileID: 1001485560}
+  - component: {fileID: 1001485559}
+  - component: {fileID: 1001485558}
   m_Layer: 0
   m_Name: Eggshell_0
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2289,6 +2294,82 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001485558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001485554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33ba212f51decf49bd185f5e73e875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  amount: 1
+--- !u!58 &1001485559
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001485554}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.009561092, y: 0.006146297}
+  serializedVersion: 2
+  m_Radius: 0.13063426
+--- !u!50 &1001485560
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001485554}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1023383629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,7 +3118,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1598375624}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 64eced7002c23458fa9bd58d5e0d1dc3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

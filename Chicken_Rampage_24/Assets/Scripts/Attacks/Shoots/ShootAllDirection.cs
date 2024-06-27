@@ -19,56 +19,63 @@ public class ShootAllDirection : Attack
 
     protected ObjectPool projectilePool;
 
+    public float aggroDistance = 10f;
+
     override public IEnumerator ExecuteAttack(float attackTime)
     {
-        if (myAmmo)
+        if (Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < aggroDistance)
         {
-            if (!myAmmo.CheckForAmmo(1)) yield break;
-            else myAmmo.UpdateValue(Collectible_Type.Ammo, -1);
-        }
+            if (myAmmo)
+            {
+                if (!myAmmo.CheckForAmmo(1)) yield break;
+                else myAmmo.UpdateValue(Collectible_Type.Ammo, -1);
+            }
 
-        attacking = true;
+            attacking = true;
 
-        // get angle
-        Vector2 direction;
-        if (!isEnemy)
-        {
-            Vector3 mouse = Input.mousePosition;
-            direction = (Camera.main.ScreenToWorldPoint(mouse) - attackOffset.transform.position);
-            direction.Normalize();
-        }
-        else
-        {
-            // some targetting thing
-            direction = (playerRef.transform.position - attackOffset.transform.position);
-            direction.Normalize();
-        }
-        float rotation = Vector2.Angle(Vector2.right, direction);
-        if (direction.y < 0) rotation = -rotation;
-
-        if (myAnim) myAnim.SetTrigger("Attack");
-
-        // get projectile
-        GameObject newProject = projectilePool.pullObject(attackOffset.transform.position);
-        if (newProject == null)
-        {
-            newProject = Instantiate(projectile, attackOffset.transform.position, Quaternion.identity);
-            if (newProject.GetComponent<ProjectileMove>()) projectilePool.addToAll(newProject.GetComponent<ProjectileMove>());
+            // get angle
+            Vector2 direction;
+            if (!isEnemy)
+            {
+                Vector3 mouse = Input.mousePosition;
+                direction = (Camera.main.ScreenToWorldPoint(mouse) - attackOffset.transform.position);
+                direction.Normalize();
+            }
             else
             {
-                Debug.LogError("Projectile from " + gameObject.name + " does not have ProjectileMove!");
-                attacking = false;
-                yield break;
+                // some targetting thing
+                direction = (playerRef.transform.position - attackOffset.transform.position);
+                direction.Normalize();
             }
+            float rotation = Vector2.Angle(Vector2.right, direction);
+            if (direction.y < 0) rotation = -rotation;
+
+            if (myAnim) myAnim.SetTrigger("Attack");
+
+            // get projectile
+            GameObject newProject = projectilePool.pullObject(attackOffset.transform.position);
+            if (newProject == null)
+            {
+                newProject = Instantiate(projectile, attackOffset.transform.position, Quaternion.identity);
+                if (newProject.GetComponent<ProjectileMove>()) projectilePool.addToAll(newProject.GetComponent<ProjectileMove>());
+                else
+                {
+                    Debug.LogError("Projectile from " + gameObject.name + " does not have ProjectileMove!");
+                    attacking = false;
+                    yield break;
+                }
+            }
+
+            if (newProject.GetComponent<ProjectileMove>()) newProject.GetComponent<ProjectileMove>().setValues(this, projectileSpeed, liveTime, direction, isEnemy);
+            else Debug.LogWarning("ProjectileMove component not found on " + projectile.name + ". This object will not move!");
+
+            newProject.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, rotation));
+
+            yield return new WaitForSeconds(attackTime);
+            attacking = false;
         }
 
-        if (newProject.GetComponent<ProjectileMove>()) newProject.GetComponent<ProjectileMove>().setValues(this, projectileSpeed, liveTime, direction, isEnemy);
-        else Debug.LogWarning("ProjectileMove component not found on " + projectile.name + ". This object will not move!");
-
-        newProject.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, rotation));
-
-        yield return new WaitForSeconds(attackTime);
-        attacking = false;
+       
     }
 
     override protected void Awake()

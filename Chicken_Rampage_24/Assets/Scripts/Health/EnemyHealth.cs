@@ -22,6 +22,8 @@ public class EnemyHealth : Health
     [Header("Automatically set this object to 'Enemy' Layer?")]
     public bool autosetLayerToEnemy = true;
 
+    public CollectibleManager cm;
+
     override public void TakeDamage(int amount)
     {
         if (!isImmune && !dead && !immortal)
@@ -74,6 +76,8 @@ public class EnemyHealth : Health
                 if (id == null) Debug.LogError("ItemDrop component not found on " + gameObject.name + "! No items will be dropped.", gameObject);
                 else id.dropTheLoot();
             }
+
+            cm.UpdateValue(Collectible_Type.Coin, 1);
 
             Destroy(gameObject);
         }
