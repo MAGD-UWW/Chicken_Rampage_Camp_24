@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Jackson Assets/Home Screen.unity
+    path: Assets/Home Screen.unity
     guid: 1b710d41332ec224689833202e597a70
   - enabled: 1
-    path: Assets/Flynn's Assets/Flynn Scene.unity
+    path: Assets/Game Scene.unity
     guid: 394a641768618a247b08b2ee96c71d66
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
